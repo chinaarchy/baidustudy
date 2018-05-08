@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>IFE ECMAScript</title>
+</head>
+<body>
+<input id="first-number" type="number" value="0" placeholder="第一个数字">
+<input id="second-number" type="number" value="0" placeholder="第二个数字">
+<button id="add-btn">加</button>
+<button id="minus-btn">减</button>
+<button id="times-btn">乘</button>
+<button id="divide-btn">除</button>
+<p id="result">运算结果</p>
+<script>
+    var numOne = document.querySelector('#first-number')
+    var numTwo = document.querySelector('#second-number')
+    var addbtn = document.querySelector('#add-btn')
+    addbtn.addEventListener('click',function () {
+        var newResult = parseInt(numOne.value) + parseInt(numTwo.value)
+        console.log(newResult.toString())
+        var resultCon = document.querySelector('#result')
+        resultCon.insertAdjacentHTML('beforeEnd',newResult.toString())
+    })
+    var minbtn = document.querySelector('#minus-btn')
+    minbtn.addEventListener('click',function () {
+        var newResult = parseInt(numOne.value) - parseInt(numTwo.value)
+        console.log(newResult.toString())
+        var resultCon = document.querySelector('#result')
+        resultCon.insertAdjacentHTML('beforeEnd',newResult.toString())
+    })
+    var multbtn = document.querySelector('#times-btn')
+    multbtn.addEventListener('click',function () {
+        var newResult = parseInt(numOne.value) * parseInt(numTwo.value)
+        console.log(newResult.toString())
+        var resultCon = document.querySelector('#result')
+        resultCon.insertAdjacentHTML('beforeEnd',newResult.toString())
+    })
+    var dividebtn = document.querySelector('#divide-btn')
+    dividebtn.addEventListener('click',function () {
+        var newResult = parseInt(numOne.value) / parseInt(numTwo.value)
+        console.log(newResult.toString())
+        var resultCon = document.querySelector('#result')
+        resultCon.insertAdjacentHTML('beforeEnd',newResult.toString())
+    })
+</script>
+</body>
+</html>
