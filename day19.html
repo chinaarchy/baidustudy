@@ -101,11 +101,9 @@
     function getActiveLinkContent(sectionId) {
      // 返回某个section下，class为active的链接中包含的文字内容
      var result = []
-     var linkList = document.querySelector('#'+sectionId).querySelectorAll('a')
+     var linkList = document.querySelector('#'+sectionId).querySelectorAll('a.active')
      for (var i = 0; i < linkList.length; i++) {
-       if(linkList[i].classList.contains('active')){
          result.push(linkList[i].innerHTML)
-       }
      }
      return result
     }
