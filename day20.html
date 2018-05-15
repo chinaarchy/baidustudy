@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>css sprite</title>
+<style>
+.one
+{
+background-image:url("ic2.jpg");
+background-repeat: no-repeat;
+background-position:-0px -1920px;
+width:480px;
+height:480px;
+margin:0 auto;
+}
+</style>
+</head>
+<body>
+<div class="one"></div>
+<script>
+var firstPic = document.querySelector('.one')
+firstPic.setAttribute("background-position","-0px -960px")
+var countNum = 0
+var timeCount = setInterval("change()",200)
+var change = function(){
+	if(countNum == 7680){
+		countNum = 0
+	}else {
+		countNum += 480
+	}
+	console.log(`-0px -${countNum}px`);
+	firstPic.style.cssText = `background-position:-0px -${countNum}px`
+	console.log(firstPic.style);
+}
+
+</script>
+</body>
+</html>
