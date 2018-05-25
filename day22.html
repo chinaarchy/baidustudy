@@ -1,0 +1,90 @@
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<div>
+<input id="queue-input" type="text">
+<p id="queue-cont">队列内容：apple-&gt;pear</p>
+<button id="in-btn">入队</button>
+<button id="out-btn">出队</button>
+<button id="font-btn">打印队头元素内容</button>
+<button id="empty-btn">判断队列是否为空</button>
+</div>
+<div>
+<input id="stack-input" type="text">
+<p id="stack-cont">栈内容：apple-gt;pear</p>
+<button id="stack-push-btn">进栈</button>
+<button id="stack-pop-btn">退栈</button>
+<button id="stack-font-btn">打印栈顶元素内容</button>
+<button id="stack-empty-btn">判断栈是否为空</button>
+</div>
+<!-- 堆栈操作 -->
+<script>
+var stack = ["apple", "pear"];
+var stackInput = document.getElementById('stack-input')
+var stackCont = document.getElementById('stack-cont')
+var sPushBtn = document.getElementById('stack-push-btn')
+var sPopBtn = document.getElementById('stack-pop-btn')
+var sFontBtn = document.getElementById('stack-font-btn')
+var sEmptyBtn = document.getElementById('stack-empty-btn')
+sPushBtn.addEventListener('click',function(){
+  if(stackInput.value != ''){
+    stack.push(stackInput.value)
+    stackCont.innerHTML = templateStack()
+  }
+})
+sPopBtn.addEventListener('click',function(){
+  stack.pop()
+  stackCont.innerHTML = templateStack()
+})
+sFontBtn.addEventListener('click',function(){
+  stackCont.innerHTML = `栈顶元素为 ： ${stack[stack.length - 1]}`
+})
+sEmptyBtn.addEventListener('click',function(){
+  if (stack.length == 0) {
+  stackCont.innerHTML = `堆栈为空`
+  }else {
+  stackCont.innerHTML = `堆栈不为空`
+  }
+})
+var templateStack = function(){
+  var t = stack.join('->')
+  return `栈内容： ${t}`
+}
+</script>
+<!-- 队列操作 -->
+<script>
+var queue = ["apple", "pear"];
+var inBtn = document.getElementById('in-btn')
+var outBtn = document.getElementById('out-btn')
+var fontBtn = document.getElementById('font-btn')
+var emptyBtn = document.getElementById('empty-btn')
+var queueInput = document.getElementById('queue-input')
+var queuecont = document.getElementById('queue-cont')
+inBtn.addEventListener('click',function(){
+  queue.push(queueInput.value)
+  queuecont.innerHTML = templateQueue()
+})
+outBtn.addEventListener('click',function(){
+  queue.shift()
+  queuecont.innerHTML = templateQueue()
+})
+fontBtn.addEventListener('click',function(){
+  queuecont.innerHTML = queue[queue.length - 1]
+})
+emptyBtn.addEventListener('click',function(){
+  if (queue.length == 0) {
+    queuecont.innerHTML = `empty`
+  }else {
+    queuecont.innerHTML = `not empty`
+  }
+})
+var templateQueue = function(){
+  var stringQueue = queue.join('->')
+  var t = `队列内容：${stringQueue}`
+  return t
+}
+</script>
+</body>
+</html>
